@@ -1,9 +1,10 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { setFilter } from 'redux/filter/filter-slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFilter, setFilter } from 'redux/filter/filter-slice';
 import styles from './Filter.module.css';
 
 const Filter = () => {
-  const filterRdx = useSelector(state => state.filter);
+  const filter = useSelector(getFilter);
+  console.log(filter);
   const dispatch = useDispatch();
 
   return (
@@ -12,10 +13,8 @@ const Filter = () => {
       <input
         className={styles.inputFilter}
         type="text"
-        value={filterRdx}
-        onChange={({ currentTarget }) =>
-          dispatch(setFilter(currentTarget.value))
-        }
+        value={filter}
+        onChange={e => dispatch(setFilter(e.target.value))}
         placeholder="Enter name here"
       />
     </label>

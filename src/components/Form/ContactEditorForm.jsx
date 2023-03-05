@@ -6,14 +6,14 @@ export const ContactEditorForm = ({
   onSubmit,
   btnText,
 }) => {
-  const handleSubmit = async (values, actions) => {
+  const onHandleSubmit = async (values, actions) => {
     await onSubmit(values);
     actions.setSubmitting(false);
     actions.resetForm();
   };
 
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+    <Formik initialValues={initialValues} onSubmit={onHandleSubmit}>
       {({ isSubmitting }) => (
         <Form className={styles.form}>
           <div className={styles.formContainer}>

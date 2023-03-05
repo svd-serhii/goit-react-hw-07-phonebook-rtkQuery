@@ -15,4 +15,7 @@ function Loader() {
   );
 }
 
+Loader.defaultProps = {
+  width: '10',
+};
 export default Loader;
