@@ -1,5 +1,7 @@
 import styles from './CreateContact.module.css';
 import { Formik, Form, Field } from 'formik';
+import { LoaderMiddle } from 'components/Loader/Loader';
+// import { useAddContactMutation } from 'redux/contacts/contacts-slice';
 
 export const ContactEditorForm = ({
   initialValues = { name: '', phone: '' },
@@ -42,7 +44,12 @@ export const ContactEditorForm = ({
                 placeholder="Input telephone number"
               />
             </label>
-            <button className={styles.formBtn} type="submit">
+            <button
+              className={styles.formBtn}
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting && <LoaderMiddle />}
               {btnText}
             </button>
           </div>
@@ -51,3 +58,18 @@ export const ContactEditorForm = ({
     </Formik>
   );
 };
+
+// const normalizedName = values.name.toLowerCase();
+// const normalizedPhone = values.phone.toLowerCase();
+// if (contacts.find(contact => normalizedName === contact.name.toLowerCase())) {
+//   return toast.error(`${values.name} is already in contacts`);
+// }
+
+// const contactNumber = contacts.find(
+//   contact => normalizedPhone === contact.phone.toLowerCase()
+// );
+// if (contactNumber) {
+//   return toast.error(
+//     `${values.phone} is already belong to ${contactNumber.name}`
+//   );
+// }

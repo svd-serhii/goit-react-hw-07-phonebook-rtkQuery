@@ -1,6 +1,6 @@
 import { Contact } from 'components/Contact/Contact';
 import { useGetContactsQuery } from 'redux/contacts/contacts-slice';
-import Loader from 'components/Loader/Loader';
+import { Loader } from 'components/Loader/Loader';
 import styles from './ContactsList.module.css';
 
 const ContactsList = () => {

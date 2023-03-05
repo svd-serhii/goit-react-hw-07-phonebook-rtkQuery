@@ -1,7 +1,7 @@
 import { useDeleteContactMutation } from 'redux/contacts/contacts-slice';
 import { toast } from 'react-toastify';
-import styles from '../ContactsList/ContactsList.module.css';
-import Loader from 'components/Loader/Loader';
+import styles from './Contact.module.css';
+import { LoaderSmall } from 'components/Loader/Loader';
 
 export const Contact = contact => {
   const [deleteContact, { isLoading: isAdding, isSuccess }] =
@@ -17,12 +17,12 @@ export const Contact = contact => {
         {contact.name}: {contact.phone}
       </p>
       <button
+        className={styles.btnList}
         type="button"
         onClick={() => deleteContact(contact.id)}
         disabled={isAdding}
       >
-        {isAdding && <Loader width={'10'} />}
-        Удалить
+        {isAdding ? <LoaderSmall /> : 'Удалить'}
       </button>
     </li>
   );
