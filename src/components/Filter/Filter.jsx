@@ -4,7 +4,7 @@ import styles from './Filter.module.css';
 
 const Filter = () => {
   const filter = useSelector(getFilter);
-  console.log(filter);
+  // console.log(filter);
   const dispatch = useDispatch();
 
   return (

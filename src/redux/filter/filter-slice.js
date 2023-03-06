@@ -19,4 +19,3 @@ export const { setFilter } = filterSlice.actions;
 export default filterSlice.reducer;
 
 export const getFilter = state => state.filter;
-console.log(getFilter);
