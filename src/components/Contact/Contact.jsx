@@ -1,4 +1,4 @@
-import { useDeleteContactMutation } from 'redux/contacts/contacts-slice';
+import { useDeleteContactMutation } from 'redux/contactsSlice';
 import { toast } from 'react-toastify';
 import styles from './Contact.module.css';
 import { LoaderSmall } from 'components/Loader/Loader';
